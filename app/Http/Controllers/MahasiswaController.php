@@ -11,6 +11,11 @@ class MahasiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function homepage()
+    {
+        return view('homepage');
+    }
+
     public function index()
     {
         //
@@ -23,7 +28,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

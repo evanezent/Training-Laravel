@@ -1,0 +1,53 @@
+.global-box{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    background-image: url('../image/flow.webp');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 40rem;
+    align-items: center;
+    display: flex;
+}
+.box-user{
+    display: block;
+}
+.my-btn{
+    border-radius: unset;
+    background-color: white;
+    width: 7em;
+}
+.login-btn{
+    color: #18BDF9;
+}
+.login-btn:hover{
+    background-color: #18BDF9;
+    color: white;
+}
+.register-btn{
+    color: #BD1C45;
+}
+.register-btn:hover{
+    background-color: #BD1C45;
+    color: white;
+}
+li{
+    list-style: none;
+}
+h1{
+    text-transform: uppercase;
+    font-size: 3.5em;
+    font-family: 'Anton', sans-serif;
+    
+}
+@media(max-width:600px){
+    h1{
+        font-size: 1.75em;
+    }
+    .global-box{
+        height: 30em;
+    }
+    ul{
+        padding-inline-start: unset!important;
+    }
+}

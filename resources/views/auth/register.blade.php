@@ -2,6 +2,31 @@
 
 @section('content')
 <div class="container">
+    <div class="semantic-header justify-content-center d-flex">
+        <div class="ui horizontal list">
+            <div class="item">
+                <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
+                <div class="content">
+                    <div class="ui sub header">Molly</div>
+                    Coordinator
+                </div>
+            </div>
+            <div class="item">
+                <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
+                <div class="content">
+                    <div class="ui sub header">Elyse</div>
+                    Developer
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
+                <div class="content">
+                    <div class="ui sub header">Eve</div>
+                    Project Manager
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -18,9 +43,9 @@
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -32,9 +57,9 @@
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
@@ -46,9 +71,9 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
                                 @enderror
                             </div>
                         </div>
