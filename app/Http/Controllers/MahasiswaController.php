@@ -16,6 +16,11 @@ class MahasiswaController extends Controller
         return view('homepage');
     }
 
+    public function loginregister()
+    {
+        return view('auth/login_register');
+    }
+
     public function index()
     {
         //

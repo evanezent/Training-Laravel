@@ -2,31 +2,6 @@
 
 @section('content')
 <div class="container">
-    <div class="semantic-header justify-content-center d-flex">
-        <div class="ui horizontal list">
-            <div class="item">
-                <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
-                <div class="content">
-                    <div class="ui sub header">Molly</div>
-                    Coordinator
-                </div>
-            </div>
-            <div class="item">
-                <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
-                <div class="content">
-                    <div class="ui sub header">Elyse</div>
-                    Developer
-                </div>
-            </div>
-            <div class="item">
-                <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
-                <div class="content">
-                    <div class="ui sub header">Eve</div>
-                    Project Manager
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

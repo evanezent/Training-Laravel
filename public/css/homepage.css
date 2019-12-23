@@ -9,6 +9,46 @@
     align-items: center;
     display: flex;
 }
+.card-box{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    height: 40rem;
+    align-items: center;
+    display: flex;
+}
+.logreg-box{
+    background-color: black;
+    padding-bottom: 1rem;
+}
+.logreg-tab{
+    height: 3em;
+    align-items: center;
+}
+.logreg-tab ul{
+    height: 100%;
+}
+.logreg-tab li{
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #18BDF9;
+}
+.active{
+    background-color: #18BDF9;
+    color: white!important;
+}
+.logreg-tab li:hover{
+    background-color: #18BDF9;
+    color: white!important;
+    cursor: pointer;
+}
+.login-btn{
+    color: white;
+}
+a:hover{
+    color: white;
+}
 .box-user{
     display: block;
 }
@@ -16,20 +56,6 @@
     border-radius: unset;
     background-color: white;
     width: 7em;
-}
-.login-btn{
-    color: #18BDF9;
-}
-.login-btn:hover{
-    background-color: #18BDF9;
-    color: white;
-}
-.register-btn{
-    color: #BD1C45;
-}
-.register-btn:hover{
-    background-color: #BD1C45;
-    color: white;
 }
 li{
     list-style: none;

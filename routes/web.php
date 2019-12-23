@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/homepage', 'MahasiswaController@homepage');
+Route::get('/loginregister', 'MahasiswaController@loginregister');

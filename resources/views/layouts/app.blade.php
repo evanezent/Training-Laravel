@@ -25,6 +25,27 @@
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- TODO : BELOM JALAN -->
+    <script>
+        $('.list-group').on('click', 'li', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+
+        var x1 = document.getElementById("login");
+        var x2 = document.getElementById("register");
+        console.log(x1)
+        console.log(x2)
+
+        function funSesi1() {
+            x1.style.display = "block"
+            x2.style.display = "none"
+        }
+
+        function funSesi2() {
+            x1.style.display = "none"
+            x2.style.display = "block"
+        }
+    </script>
 </head>
 
 <body>
