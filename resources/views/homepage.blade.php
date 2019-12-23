@@ -11,8 +11,7 @@
             </li>
             <li>
                 <div class="d-flex justify-content-center box-user mt-5">
-                    <a href="{{ route('login') }}" class="btn my-btn login-btn mr-2"><strong>Login</strong></a>
-                    <a href="{{ route('register') }}" class="btn my-btn register-btn"><strong>Register</strong></a>
+                    <a href="/loginregister" class="btn my-btn login-btn mr-2"><strong>Login</strong></a>
                 </div>
             </li>
         </ul>
