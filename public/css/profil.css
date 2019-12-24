@@ -1,0 +1,10 @@
+.ui.medium.image{
+    width: 500px!important;
+}
+.profil-box{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    height: auto;
+    align-items: center;
+    display: flex;
+    padding: 2em;
+}

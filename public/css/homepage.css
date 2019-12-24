@@ -16,8 +16,10 @@
     display: flex;
 }
 .logreg-box{
-    background-color: black;
     padding-bottom: 1rem;
+}
+.logreg-body{
+    color: #18BDF9!important;
 }
 .logreg-tab{
     height: 3em;
@@ -43,9 +45,11 @@
     color: white!important;
     cursor: pointer;
 }
+#register{
+    display: none;
+}
 .login-btn{
     color: #18BDF9;
-    box-shadow: 1rem 1rem 1rem rgba(0,0,0,.15)!important;
 }
 .login-btn:hover{
     background-color: #18BDF9;
