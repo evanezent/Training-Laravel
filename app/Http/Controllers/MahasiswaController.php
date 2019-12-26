@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -26,6 +27,12 @@ class MahasiswaController extends Controller
         return view('profil');
     }
 
+    public function table()
+    {
+        $data['data'] = \App\Mahasiswa::all();
+        return view('table', $data);
+    }
+
     public function index()
     {
         //
@@ -47,9 +54,23 @@ class MahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function registerDB(Request $request)
     {
-        //
+        $mhs = new Mahasiswa;
+
+        if($request->password == $request->password_confirmation){
+            $mhs->nim = $request->nim;
+            $mhs->nama = $request->name;
+            $mhs->jurusan = $request->jurusan;
+            $mhs->angkatan = $request->angkatan;
+            $mhs->password = $request->password;
+
+            $mhs->save();
+
+            return redirect('table');
+        }else{
+            return redirect('loginregister');
+        }
     }
 
     /**

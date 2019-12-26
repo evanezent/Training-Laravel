@@ -20,7 +20,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('nama');
             $table->string('jurusan');
             $table->integer('angkatan');
-            $table->string('foto_profil');
+            $table->string('foto_profil')->nullable(true)->default(null);
             $table->timestamps();
         });
     }

@@ -20,7 +20,6 @@
                             <form method="POST" action="{{ route('login') }}">
                                 @csrf
 
-
                                 <input id="nme number" type="text" class="question mt-3 @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autofocus>
                                 <label class="nme"><span>{{ __('NIM') }}</span></label>
 
@@ -73,7 +72,7 @@
                                 </span>
                                 @enderror
 
-                                <input id="nme jurusan" type="text" class="question mt-3 @error('jurusan') is-invalid @enderror" name="name" value="{{ old('jurusan') }}" required autocomplete="jurusan" autofocus>
+                                <input id="nme jurusan" type="text" class="question mt-3 @error('jurusan') is-invalid @enderror" name="jurusan" value="{{ old('jurusan') }}" required autocomplete="jurusan" autofocus>
                                 <label for="jurusan" class="nme"><span>{{ __('Jurusan') }}</span></label>
 
                                 @error('jurusan')
