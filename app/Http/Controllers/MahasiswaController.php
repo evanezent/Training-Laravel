@@ -35,6 +35,11 @@ class MahasiswaController extends Controller
         return view('table', $data);
     }
 
+    public function file()
+    {
+        return view('file');
+    }
+
     public function index()
     {
         //
@@ -86,6 +91,40 @@ class MahasiswaController extends Controller
             return redirect('table');
         } else {
             return redirect('loginregister');
+        }
+    }
+
+    public function upload(Request $request)
+    {
+        // menyimpan data file yang diupload ke variabel $file
+        $file = $request->file('file');
+        if ($file) {
+            // nama file
+            $nama = uniqid().".".$file->getClientOriginalExtension();
+
+            echo 'File Name: ' . $nama;
+            echo '<br>';
+
+            // ekstensi file
+            echo 'File Extension: ' . $file->getClientOriginalExtension();
+            echo '<br>';
+
+            // real path
+            echo 'File Real Path: ' . $file->getRealPath();
+            echo '<br>';
+
+            // ukuran file
+            echo 'File Size: ' . $file->getSize();
+            echo '<br>';
+
+            // tipe mime
+            echo 'File Mime Type: ' . $file->getMimeType();
+
+            // isi dengan nama folder tempat kemana file diupload
+            $tujuan_upload = 'image';
+            $file->move($tujuan_upload, $nama);
+        }else{
+            echo "GAAADAAAAAAAAAAAAAAAA";
         }
     }
 

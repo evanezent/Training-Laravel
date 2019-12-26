@@ -22,7 +22,9 @@ Route::get('/homepage', 'MahasiswaController@homepage');
 Route::get('/loginregister', 'MahasiswaController@loginregister');
 Route::get('/profil/{nim}', 'MahasiswaController@profil');
 Route::get('/table', 'MahasiswaController@table');
+Route::get('/file', 'MahasiswaController@file');
 
 
 Route::post('/updateProfil', 'MahasiswaController@updateDB');
 Route::post('/register', 'MahasiswaController@registerDB');
+Route::post('/uploadd', 'MahasiswaController@upload');
