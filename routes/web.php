@@ -11,15 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/homepage', 'MahasiswaController@homepage');
 Route::get('/loginregister', 'MahasiswaController@loginregister');
-Route::get('/profil', 'MahasiswaController@profil');
+Route::get('/profil/{nim}', 'MahasiswaController@profil');
 Route::get('/table', 'MahasiswaController@table');
+
+
+Route::post('/updateProfil', 'MahasiswaController@updateDB');
 Route::post('/register', 'MahasiswaController@registerDB');

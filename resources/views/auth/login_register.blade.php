@@ -42,7 +42,7 @@
                             </form>
                         </div>
                         <div id="register">
-                            <form method="POST" action="{{ route('register') }}">
+                            <form method="POST" action="{{ url('register') }}">
                                 @csrf
 
                                 <input id="nme name" type="text" class="question mt-3 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>

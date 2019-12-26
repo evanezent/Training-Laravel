@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mahasiswa;
+use Laravel\Scout\Searchable;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -22,9 +23,10 @@ class MahasiswaController extends Controller
         return view('auth/login_register');
     }
 
-    public function profil()
+    public function profil($nim)
     {
-        return view('profil');
+        $data['data'] = \App\Mahasiswa::where('nim', '=', $nim)->get();
+        return view('profil', $data);
     }
 
     public function table()
@@ -45,7 +47,6 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -54,11 +55,26 @@ class MahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function updateDB(Request $request)
+    {
+        $mhs = array(
+            'nama' => $request->name,
+            'jurusan' => $request->jurusan,
+            'angkatan' => $request->angkatan
+        );
+
+        \App\Mahasiswa::where('nim', '=', $request->nim)->update($mhs);
+
+        // $data['data'] = \App\Mahasiswa::where('nim', '=', $request->nim)->get();
+        return MahasiswaController::profil($request->nim);
+    }
+
     public function registerDB(Request $request)
     {
+        # code...
         $mhs = new Mahasiswa;
 
-        if($request->password == $request->password_confirmation){
+        if ($request->password == $request->password_confirmation) {
             $mhs->nim = $request->nim;
             $mhs->nama = $request->name;
             $mhs->jurusan = $request->jurusan;
@@ -68,7 +84,7 @@ class MahasiswaController extends Controller
             $mhs->save();
 
             return redirect('table');
-        }else{
+        } else {
             return redirect('loginregister');
         }
     }
