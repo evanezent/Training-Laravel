@@ -1,26 +1,26 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
 
 @section('content')
-<h1>{{Session::get('nama')}}</h1>
-<a href="{{ url('logout') }}">LOGOUT</a>
-<table class="ui celled table">
-    <thead>
-        <tr>
-            <th>NIM</th>
-            <th>NAMA</th>
-            <th>JURUSAN</th>
-            <th>ANGKATAN</th>
-        </tr>
-    </thead>
-    <tbody>
-    @foreach($data as $item)
-        <tr>
-            <td data-label="NIM">{{ $item->nim }}</td>
-            <td data-label="NAMA">{{ $item->nama }}</td>
-            <td data-label="JURUSAN">{{ $item->jurusan }}</td>
-            <td data-label="ANGKATAN">{{ $item->angkatan }}</td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+<div class="d-flex justify-content-center">
+    <table class="table table-responsive">
+        <thead class="thead-dark mx-auto">
+            <tr>
+                <th scope="col">NIM</th>
+                <th scope="col">Nama Lengkap</th>
+                <th scope="col">Jurusan</th>
+                <th scope="col">Angkatan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $item)
+            <tr>
+                <td data-label="NIM">{{ $item->nim }}</td>
+                <td data-label="NAMA">{{ $item->nama }}</td>
+                <td data-label="JURUSAN">{{ $item->jurusan }}</td>
+                <td data-label="ANGKATAN">{{ $item->angkatan }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
 @endsection

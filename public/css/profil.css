@@ -62,3 +62,8 @@
     background-position: 0 -100%;
     color: #2590EB;
   }
+  @media(min-width : 600px){
+      .table-responsive{
+          display: table;
+      }
+  }

@@ -20,7 +20,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'MahasiswaController@homepage');
 Route::get('/homepage', 'MahasiswaController@homepage');
-Route::get('/loginregister', 'MahasiswaController@loginregister');
+Route::get('/loginregister', 'MahasiswaController@loginregister')->name('loginregister');
 Route::get('/profil/{nim}', 'MahasiswaController@profil');
 Route::get('/table', 'MahasiswaController@table');
 Route::get('/file', 'MahasiswaController@file');

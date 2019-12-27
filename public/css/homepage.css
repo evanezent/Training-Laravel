@@ -1,3 +1,6 @@
+.navbar-brand{
+    color: #18BDF9!important;
+}
 .global-box{
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
     background-image: url('../image/flow.webp');
@@ -70,7 +73,6 @@ h1{
     text-transform: uppercase;
     font-size: 3.5em;
     font-family: 'Anton', sans-serif;
-    
 }
 @media(max-width:600px){
     h1{
@@ -81,5 +83,12 @@ h1{
     }
     ul{
         padding-inline-start: unset!important;
+    }
+    .logreg-tab{
+        margin-top: 1em;
+    }
+    .logreg-tab li{
+        width: 100%;
+        height: 5em;
     }
 }

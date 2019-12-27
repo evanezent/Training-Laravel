@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.navbar')
 
 @section('content')
 <div class="row mx-2">
     <div class="col-md justify-content-center profil-box">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 mb-4">
                 <div class="profil-foto">
                     <div class="profil-img">
                         <img class="image" src="{{ asset('uploads/'.$data[0]->foto_profil) }}">
@@ -19,20 +19,6 @@
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content" style="background-color: unset; border:unset">
-                        <!--    <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div> -->
                         <div class="wrapper">
                             <form action="{{url('uploadd')}}" method="POST" enctype="multipart/form-data">
                                 <div class="file-upload">
@@ -65,7 +51,7 @@
                         <input type="text" name="jurusan" class="question" id="nme" required autocomplete="off" value="{{$data[0]->jurusan}}" />
                         <label for="nme"></label>
                         <div class="row mb-0 mt-5">
-                            <div class="col-md-10" style="text-align: left">
+                            <div class="col-md-12" style="text-align: right">
                                 <button type="submit" class="btn my-btn login-btn shadow">
                                     Update
                                 </button>

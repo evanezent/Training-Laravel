@@ -31,10 +31,13 @@
 
 <body>
     <!-- NOT WORK YET -->
-
-    <!-- @if (Session::has('nama'))
-    {{ redirect('table') }}
-    @endif -->
+    <?php
+    // if (!(Session::has('nama'))){ 
+    //     echo "REDIRECT";    
+    //     return redirect('loginregister');
+    //     // return view('auth/login_register');
+    // }
+    ?>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -47,41 +50,24 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active"><a class="nav-link" href="{{ url('table') }}">Table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">APAAN YAK</a></li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        <!-- @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        </li>
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        </li>
-                        @endif
-                        @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                    <div style="right: 0;">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <strong>{{Session::get('nama')}}</strong>
                             </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="{{ url('profil/'.Session::get('nim')) }}">Me</a>
+                                <a class="dropdown-item" href="{{ url('logout')}}">LOGOUT</a>
                             </div>
-                        </li>
-                        @endguest
-                    </ul> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -90,8 +76,7 @@
             @yield('content')
         </main>
     </div>
-    <!-- TODO : BELOM JALAN -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
             $(".li-item").click(function() {
@@ -107,18 +92,17 @@
 
         function funSesi1() {
             console.log(x1)
-            $('#login').css('display','block')
-            $('#register').css('display','none')
+            $('#login').css('display', 'block')
+            $('#register').css('display', 'none')
         }
 
         function funSesi2() {
             console.log($('#register'))
-            $('#register').css('display','block')
-            $('#login').css('display','none')
+            $('#register').css('display', 'block')
+            $('#login').css('display', 'none')
         }
-    </script>
+    </script> -->
     @include('layouts.footer')
-
 </body>
 
 </html>
