@@ -17,7 +17,7 @@
                     </div>
                     <div class="logreg-body">
                         <div id="login">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{ url('loginn') }}">
                                 @csrf
 
                                 <input id="nme number" type="text" class="question mt-3 @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}" required autofocus>

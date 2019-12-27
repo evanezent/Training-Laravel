@@ -4,12 +4,53 @@
 <div class="row mx-2">
     <div class="col-md justify-content-center profil-box">
         <div class="row">
-            <div class="col-lg-5">
+            <div class="col-lg-6">
                 <div class="profil-foto">
-                    <img class="ui medium circular image" src="{{ asset('image/me.jpg') }}">
+                    <div class="profil-img">
+                        <img class="image" src="{{ asset('uploads/'.$data[0]->foto_profil) }}">
+                        <div class="profil-modal">
+                            <button type="button" class="btn my-btn login-btn shadow" data-toggle="modal" data-target="#exampleModalCenter">Edit foto</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-7">
+
+            <!-- MODAL -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content" style="background-color: unset; border:unset">
+                        <!--    <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div> -->
+                        <div class="wrapper">
+                            <form action="{{url('uploadd')}}" method="POST" enctype="multipart/form-data">
+                                <div class="file-upload">
+                                    {{ csrf_field() }}
+                                    <input type="file" name="file" />
+                                    <i class="fa fa-arrow-up"></i>
+                                    <input type="hidden" value="{{$data[0]->nim}}" name="nim">
+                                </div>
+                                <div class="text-upload text-center mt-2">
+                                    <button type="submit" style="background-color: transparent; border: none;">UPLOAD</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
                 <div class="form-profil">
                     <h1>{{$data[0]->nim}}</h1>
                     <form method="POST" action="{{ url('/updateProfil') }}">

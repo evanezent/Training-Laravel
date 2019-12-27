@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+<h1>{{Session::get('nama')}}</h1>
+<a href="{{ url('logout') }}">LOGOUT</a>
 <table class="ui celled table">
     <thead>
         <tr>

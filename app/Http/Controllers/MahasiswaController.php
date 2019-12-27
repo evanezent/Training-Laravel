@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mahasiswa;
 use Laravel\Scout\Searchable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class MahasiswaController extends Controller
 {
@@ -21,6 +22,33 @@ class MahasiswaController extends Controller
     public function loginregister()
     {
         return view('auth/login_register');
+    }
+
+    public function loginDB(Request $request)
+    {
+        $nim = $request->nim;
+        $password = $request->password;
+        $data = \App\Mahasiswa::where('nim','=',$nim)->first();
+        if ($data){
+            if ($password = $data->password){
+                $request->session()->put('nama',$data->nama);
+                $request->session()->put('nim',$data->nim);
+                $request->session()->put('login',TRUE);
+
+                return MahasiswaController::table();
+            }else{
+                echo "NAON 11111111111111111111111";
+                return redirect('loginregister')->with('alert','Password atau NIM, Salah !');
+            }
+        }else{
+            echo "NAON 22222222222222222222";
+            return redirect('loginregister')->with('alert','NIM tidak terdaftar !');
+        }
+    }
+
+    public function logout(Request $request){
+        $request->session()->flush();
+        return redirect('loginregister')->with('alert','Logout berhasil !');
     }
 
     public function profil($nim)
@@ -76,7 +104,6 @@ class MahasiswaController extends Controller
 
     public function registerDB(Request $request)
     {
-        # code...
         $mhs = new Mahasiswa;
 
         if ($request->password == $request->password_confirmation) {
@@ -102,27 +129,35 @@ class MahasiswaController extends Controller
             // nama file
             $nama = uniqid().".".$file->getClientOriginalExtension();
 
-            echo 'File Name: ' . $nama;
-            echo '<br>';
+            // echo 'File Name: ' . $nama;
+            // echo '<br>';
 
-            // ekstensi file
-            echo 'File Extension: ' . $file->getClientOriginalExtension();
-            echo '<br>';
+            // // ekstensi file
+            // echo 'File Extension: ' . $file->getClientOriginalExtension();
+            // echo '<br>';
 
-            // real path
-            echo 'File Real Path: ' . $file->getRealPath();
-            echo '<br>';
+            // // real path
+            // echo 'File Real Path: ' . $file->getRealPath();
+            // echo '<br>';
 
-            // ukuran file
-            echo 'File Size: ' . $file->getSize();
-            echo '<br>';
+            // // ukuran file
+            // echo 'File Size: ' . $file->getSize();
+            // echo '<br>';
 
-            // tipe mime
-            echo 'File Mime Type: ' . $file->getMimeType();
+            // // tipe mime
+            // echo 'File Mime Type: ' . $file->getMimeType();
 
             // isi dengan nama folder tempat kemana file diupload
-            $tujuan_upload = 'image';
+            $tujuan_upload = 'uploads';
+            $mhs = array(
+                'foto_profil' => $nama,
+            );
+    
+            \App\Mahasiswa::where('nim', '=', $request->nim)->update($mhs);
+    
             $file->move($tujuan_upload, $nama);
+            return MahasiswaController::profil($request->nim);
+            
         }else{
             echo "GAAADAAAAAAAAAAAAAAAA";
         }
