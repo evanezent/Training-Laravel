@@ -52,7 +52,7 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active"><a class="nav-link" href="{{ url('table') }}">Table</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('table') }}">Table</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">APAAN YAK</a></li>
                     </ul>
 
